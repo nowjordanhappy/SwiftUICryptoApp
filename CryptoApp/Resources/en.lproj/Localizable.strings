@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  CryptoApp
+
+  Created by Jordan Rojas Alarcon on 8/03/24.
+  
+*/
+"livePrices" = "Live Prices";
+"portfolio" = "Portfolio";
