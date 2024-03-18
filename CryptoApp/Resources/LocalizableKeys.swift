@@ -11,6 +11,9 @@ import SwiftUI
 enum LocalizableKeys : String {
     case livePrices = "livePrices"
     case portfolio = "portfolio"
+    case coin = "coin"
+    case holdings = "holdings"
+    case price = "price"
 
     var localizedString: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)

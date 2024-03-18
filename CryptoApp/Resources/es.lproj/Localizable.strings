@@ -7,3 +7,6 @@
 */
 "livePrices" = "Precios en Vivo";
 "portfolio" = "Portafolio";
+"coin" = "Moneda";
+"holdings" = "Valores";
+"price" = "Precio";
