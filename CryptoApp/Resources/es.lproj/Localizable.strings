@@ -10,3 +10,4 @@
 "coin" = "Moneda";
 "holdings" = "Valores";
 "price" = "Precio";
+"searchPlaceholder" = "Busca por nombre o símbolo...";

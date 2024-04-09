@@ -10,3 +10,4 @@
 "coin" = "Coin";
 "holdings" = "Holdings";
 "price" = "Price";
+"searchPlaceholder" = "Search by name or symbol...";

@@ -25,7 +25,7 @@ struct HomeView: View {
 
                 columTitles
 
-                //Text("showPortfolio \(showPortfolio) - \(showPortfolio1)")
+                SearchBarView(searchText: $viewModel.searchText)
 
                 if !showPortfolio {
                     allCoinsList

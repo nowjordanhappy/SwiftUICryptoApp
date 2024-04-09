@@ -37,3 +37,9 @@ extension Text {
         self.init(localizableKey.localizedString)
     }
 }
+
+extension TextField where Label == Text {
+    init(_ localizableKey: LocalizableKeys, text: Binding<String>) {
+        self.init(localizableKey.localizedString, text: text)
+    }
+}
