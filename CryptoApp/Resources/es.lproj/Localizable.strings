@@ -11,3 +11,7 @@
 "holdings" = "Valores";
 "price" = "Precio";
 "searchPlaceholder" = "Busca por nombre o símbolo...";
+"marketCap" = "Cap. Mercado";
+"volume24H" = "24h Volumen";
+"btcDominance" = "BTC Dominio";
+"portfolioValue" = "Valor Portafolio";

@@ -22,3 +22,4 @@ struct CryptoAppApp: App {
         }
     }
 }
+ 

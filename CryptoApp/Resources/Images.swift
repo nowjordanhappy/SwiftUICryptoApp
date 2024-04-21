@@ -13,4 +13,5 @@ enum SystemIcon : String {
     case chevronRight = "chevron.right"
     case magnifyingglass = "magnifyingglass"
     case xmarkCircleFill = "xmark.circle.fill"
+    case triangleFill = "triangle.fill"
 }

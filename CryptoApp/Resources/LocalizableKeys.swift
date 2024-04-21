@@ -15,6 +15,12 @@ enum LocalizableKeys : String {
     case holdings = "holdings"
     case price = "price"
     case searchPlaceholder = "searchPlaceholder"
+    case marketCap = "marketCap"
+    case volume24H
+    case btcDominance
+    case portfolioValue
+    case usd
+    case dolarSign
 
     var localizedString: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)

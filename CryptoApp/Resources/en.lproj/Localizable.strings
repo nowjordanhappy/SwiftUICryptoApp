@@ -1,13 +1,17 @@
-/* 
-  Localizable.strings
-  CryptoApp
+/*
+ Localizable.strings
+ CryptoApp
 
-  Created by Jordan Rojas Alarcon on 8/03/24.
-  
-*/
+ Created by Jordan Rojas Alarcon on 8/03/24.
+
+ */
 "livePrices" = "Live Prices";
 "portfolio" = "Portfolio";
 "coin" = "Coin";
 "holdings" = "Holdings";
 "price" = "Price";
 "searchPlaceholder" = "Search by name or symbol...";
+"marketCap" = "Market Cap";
+"volume24H" = "24h Volume";
+"btcDominance" = "BTC Dominance";
+"portfolioValue" = "Portfolio Value";
