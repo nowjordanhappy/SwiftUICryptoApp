@@ -21,8 +21,18 @@ enum LocalizableKeys : String {
     case portfolioValue
     case usd
     case dolarSign
+    case editPortfolio
+    case currentPriceOf = "currentPriceOf %@"
+    case amountInPortfolio
+    case save
+    case currentValue
+    case quantityPlaceholder
 
-    var localizedString: LocalizedStringKey {
+    var localizedStringKey: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)
+    }
+
+    func getLocalizedString(_ arguments: any CVarArg...) -> String{
+        return String(format: NSLocalizedString(self.rawValue, comment: ""), arguments: arguments)
     }
 }

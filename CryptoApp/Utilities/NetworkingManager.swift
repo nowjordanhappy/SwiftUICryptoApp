@@ -22,6 +22,18 @@ class NetworkingManager {
         }
     }
 
+    func sendJSONData<T: Encodable>(_ jsonData: T) -> AnyPublisher<Data, Error> {
+        do {
+            let data = try JSONEncoder().encode(jsonData)
+            return Just(data)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        } catch {
+            return Fail(error: error)
+                .eraseToAnyPublisher()
+        }
+    }
+
     func download(url: URL) -> AnyPublisher<Data, Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .default))
@@ -45,5 +57,27 @@ class NetworkingManager {
         case .failure(let error):
             print(error.localizedDescription)
         }
+    }
+
+    func readLocalJSON(nameFile: String) -> AnyPublisher<Data, Error> {
+        return Just(nameFile)
+            .setFailureType(to: Error.self)
+            .flatMap { name -> AnyPublisher<Data, Error> in
+                if let pathFile = Bundle.main.path(forResource: name, ofType: "json") { 
+                    return Future<Data, Error> { completion in
+                        do {
+                            let data = try Data(contentsOf: URL(fileURLWithPath: pathFile))
+                            completion(.success(data))
+                        } catch {
+                            completion(.failure(error))
+                        }
+                    }
+                    .eraseToAnyPublisher()
+                } else {
+                    return Fail(error: NetworkingError.unknown)
+                        .eraseToAnyPublisher()
+                }
+            }
+            .eraseToAnyPublisher()
     }
 }

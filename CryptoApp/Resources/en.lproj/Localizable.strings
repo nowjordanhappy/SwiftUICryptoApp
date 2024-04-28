@@ -15,3 +15,9 @@
 "volume24H" = "24h Volume";
 "btcDominance" = "BTC Dominance";
 "portfolioValue" = "Portfolio Value";
+"editPortfolio" = "Edit Portfolio";
+"currentPriceOf %@" = "Current price of %@:";
+"amountInPortfolio" = "Amount holding";
+"save" = "Save";
+"currentValue" = "Current value:";
+"quantityPlaceholder" = "Ex. 1.4";

@@ -14,4 +14,7 @@ enum SystemIcon : String {
     case magnifyingglass = "magnifyingglass"
     case xmarkCircleFill = "xmark.circle.fill"
     case triangleFill = "triangle.fill"
+    case questionmark = "questionmark"
+    case xmark = "xmark"
+    case checkmark = "checkmark"
 }

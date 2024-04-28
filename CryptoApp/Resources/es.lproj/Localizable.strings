@@ -15,3 +15,9 @@
 "volume24H" = "24h Volumen";
 "btcDominance" = "BTC Dominio";
 "portfolioValue" = "Valor Portafolio";
+"editPortfolio" = "Editar Portafolio";
+"currentPriceOf %@" = "Precio actual de %@:";
+"amountInPortfolio" = "Cantidad Holding";
+"save" = "Guardar";
+"currentValue" = "Valor actual:";
+"quantityPlaceholder" = "Ej. 1.4";

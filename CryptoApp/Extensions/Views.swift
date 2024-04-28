@@ -34,12 +34,12 @@ extension View {
 
 extension Text {
     init(_ localizableKey: LocalizableKeys) {
-        self.init(localizableKey.localizedString)
+        self.init(localizableKey.localizedStringKey)
     }
 }
 
 extension TextField where Label == Text {
     init(_ localizableKey: LocalizableKeys, text: Binding<String>) {
-        self.init(localizableKey.localizedString, text: text)
+        self.init(localizableKey.localizedStringKey, text: text)
     }
 }
