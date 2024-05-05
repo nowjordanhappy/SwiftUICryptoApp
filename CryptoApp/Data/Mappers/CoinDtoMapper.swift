@@ -54,8 +54,8 @@ struct CoinDtoMapper {
             atlDate: model.atlDate,
             lastUpdated: model.lastUpdated,
             sparklineIn7D: sparklineIn7D,
-            priceChangePercentage24HInCurrency: model.priceChangePercentage24HInCurrency ?? 0.0,
-            currentHoldings: 0.0
+            priceChangePercentage24HInCurrency: model.priceChangePercentage24HInCurrency ?? 0.0
+            //currentHoldings: 0.0
         )
     }
 }

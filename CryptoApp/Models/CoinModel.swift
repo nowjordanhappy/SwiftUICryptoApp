@@ -29,7 +29,7 @@ struct CoinModel: Identifiable {
     let lastUpdated: String?
     let sparklineIn7D: SparklineIn7D
     let priceChangePercentage24HInCurrency: Double
-    var currentHoldings: Double = 0.0
+    var currentHoldings: Double? = nil
 
     func updateHoldings(amount: Double) -> CoinModel {
         return CoinModel(
@@ -66,7 +66,7 @@ struct CoinModel: Identifiable {
     }
 
     var currentHoldingsValue: Double {
-        return (currentHoldings) *  currentPrice
+        return (currentHoldings ?? 0.0 ) *  currentPrice
     }
 
     var rank: Int {
