@@ -26,8 +26,8 @@ class MarketDataService {
         debugPrint("getData")
         guard let url = URL(string: "https://api.coingecko.com/api/v3/global") else { return }
 
-        //marketDataSubscription = networkingManager.download(url: url)
-        marketDataSubscription = networkingManager.readLocalJSON(nameFile: "marketDataResponse")
+        //marketDataSubscription = networkingManager.download(url: url) // uncomment to load from API
+        marketDataSubscription = networkingManager.readLocalJSON(nameFile: "marketDataResponse") // uncomment to load from local json
             .decode(type: GlobalDataDto.self, decoder: JSONDecoder())
             .map { globalDataDto in
                 if let data = globalDataDto.data {

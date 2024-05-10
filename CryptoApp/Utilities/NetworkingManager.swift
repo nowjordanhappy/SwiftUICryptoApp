@@ -59,6 +59,7 @@ class NetworkingManager {
         }
     }
 
+    // this function is just to avoid limit HTTP from API and load from json file
     func readLocalJSON(nameFile: String) -> AnyPublisher<Data, Error> {
         return Just(nameFile)
             .setFailureType(to: Error.self)

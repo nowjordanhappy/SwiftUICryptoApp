@@ -26,8 +26,8 @@ class CoinDataService {
         debugPrint("getCoins")
         guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order-market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h") else { return }
 
-        //coinSubscription = networkingManager.download(url: url)
-        coinSubscription = networkingManager.readLocalJSON(nameFile: "marketsResponse")
+        //coinSubscription = networkingManager.download(url: url) // uncomment to load from api
+        coinSubscription = networkingManager.readLocalJSON(nameFile: "marketsResponse") // uncomment to load from local json
             .decode(type: [CoinDto].self, decoder: JSONDecoder())
             .map { coinsDto in
                 debugPrint("getCoins coinsDto \(coinsDto.count)")
