@@ -17,4 +17,5 @@ enum SystemIcon : String {
     case questionmark = "questionmark"
     case xmark = "xmark"
     case checkmark = "checkmark"
+    case goforward = "goforward"
 }

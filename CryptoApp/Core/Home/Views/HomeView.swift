@@ -37,6 +37,9 @@ struct HomeView: View {
                 if !showPortfolio {
                     allCoinsList
                         .transition(.move(edge: .leading))
+                        .refreshable {
+                            viewModel.reloadData()
+                        }
                 }
 
                 if showPortfolio {
@@ -55,6 +58,7 @@ struct HomeView: View {
         HomeView()
             .hideNavigationBar()
     }
+    .environmentObject(HomeViewModel())
 }
 
 #Preview {
@@ -63,6 +67,7 @@ struct HomeView: View {
             .hideNavigationBar()
             .environment(\.locale, .init(identifier: "es"))
     }
+    .environmentObject(HomeViewModel())
 }
 
 extension HomeView {
@@ -127,6 +132,15 @@ extension HomeView {
             }
             Text(.price)
                 .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+
+            Button(action: {
+                withAnimation(.linear(duration: 2.0)) {
+                    viewModel.reloadData()
+                }
+            }, label: {
+                Image(systemName: SystemIcon.goforward.rawValue)
+            })
+            .rotationEffect(Angle(degrees: viewModel.isLoading ? 360 : 0), anchor: .center)
         }
         .font(.caption)
         .foregroundStyle(Color.theme.secondaryText)
