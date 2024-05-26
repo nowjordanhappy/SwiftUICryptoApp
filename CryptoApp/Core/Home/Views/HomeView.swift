@@ -125,13 +125,43 @@ extension HomeView {
 
     private var columTitles: some View {
         HStack {
-            Text(.coin)
+            HStack(spacing: 4) {
+                Text(.coin)
+                Image(systemName: SystemIcon.chevronDown.rawValue)
+                    .opacity((viewModel.sortOption == .rank || viewModel.sortOption == .rankReversed) ? 1.0 : 0.0)
+                    .rotationEffect(Angle(degrees: viewModel.sortOption == .rank ? 0 : 180))
+            }
+            .onTapGesture {
+                withAnimation(.default) {
+                    viewModel.sortOption = viewModel.sortOption == .rank ? .rankReversed : .rank
+                }
+            }
             Spacer()
             if showPortfolio {
-                Text(.holdings)
+                HStack(spacing: 4) {
+                    Text(.holdings)
+                    Image(systemName: SystemIcon.chevronDown.rawValue)
+                        .opacity((viewModel.sortOption == .holdings || viewModel.sortOption == .holdingsReversed) ? 1.0 : 0.0)
+                        .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0 : 180))
+                }
+                .onTapGesture {
+                    withAnimation(.default) {
+                        viewModel.sortOption = viewModel.sortOption == .holdings ? .holdingsReversed : .holdings
+                    }
+                }
             }
-            Text(.price)
-                .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+            HStack(spacing: 4) {
+                Text(.price)
+                Image(systemName: SystemIcon.chevronDown.rawValue)
+                    .opacity((viewModel.sortOption == .price || viewModel.sortOption == .priceReversed) ? 1.0 : 0.0)
+                    .rotationEffect(Angle(degrees: viewModel.sortOption == .price ? 0 : 180))
+            }
+            .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+            .onTapGesture {
+                withAnimation(.default) {
+                    viewModel.sortOption = viewModel.sortOption == .price ? .priceReversed : .price
+                }
+            }
 
             Button(action: {
                 withAnimation(.linear(duration: 2.0)) {
