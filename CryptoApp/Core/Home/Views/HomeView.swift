@@ -9,12 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
-    @State private var showPortfolio: Bool = true // animate right
+    @State private var showPortfolio: Bool = false // animate right
     @State private var showPortfolioView: Bool = false // new sheet
 
-    init() {
-        debugPrint("HomeView showPortfolio \(showPortfolio)")
-    }
+    @State private var selectedCoin: CoinModel? = nil
+    @State private var showDetailView: Bool = false
 
     var body: some View {
         ZStack {
@@ -50,6 +49,11 @@ struct HomeView: View {
                 Spacer(minLength: 0)
             }
         }
+        .background {
+            NavigationLink(destination: DetailLoadingView(coin: $selectedCoin), isActive: $showDetailView) {
+                EmptyView()
+            }
+        }
     }
 }
 
@@ -57,25 +61,15 @@ struct HomeView: View {
     NavigationView {
         HomeView()
             .hideNavigationBar()
-    }
-    .environmentObject(HomeViewModel())
-}
-
-#Preview {
-    NavigationView {
-        HomeView()
-            .hideNavigationBar()
-            .environment(\.locale, .init(identifier: "es"))
     }
     .environmentObject(HomeViewModel())
 }
 
 extension HomeView {
-
     private var homeHeader: some View {
         HStack {
             CircleButtonView(icon: showPortfolio ? .plus : .info)
-                .animation(.none, value: UUID())
+                .animation(.none, value: showPortfolio)
                 .background(
                     CircleButtonAnimation(animate: $showPortfolio)
                 )
@@ -84,18 +78,18 @@ extension HomeView {
                         showPortfolioView.toggle()
                     }
                 }
+
             Spacer()
             Text(showPortfolio ? .portfolio : .livePrices)
                 .font(.headline)
                 .fontWeight(.heavy)
                 .foregroundStyle(Color.theme.accent)
-                .animation(.none, value: UUID())
+                .animation(.none, value: showPortfolio)
             Spacer()
             CircleButtonView(icon: SystemIcon.chevronRight)
                 .rotationEffect(Angle(degrees: showPortfolio ? 180 : 0))
                 .onTapGesture {
                     withAnimation(.spring()) {
-                        print("showPortfolio \(showPortfolio)")
                         showPortfolio.toggle()
                     }
                 }
@@ -108,9 +102,17 @@ extension HomeView {
             ForEach(viewModel.allCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: false)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
             }
         }
         .listStyle(PlainListStyle())
+    }
+
+    private func segue(coin: CoinModel) {
+        selectedCoin = coin
+        showDetailView = true
     }
 
     private var portfolioCoinsList: some View {
@@ -118,6 +120,9 @@ extension HomeView {
             ForEach(viewModel.portfolioCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: true)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
             }
         }
         .listStyle(PlainListStyle())
