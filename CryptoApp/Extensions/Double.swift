@@ -35,6 +35,40 @@ extension Double {
         "\(CurrencyUtil.instance.currencySymbol)\(CurrencyUtil.instance.defaultCurrenyValue)"
     }
 
+    /// Converts Double to Currency wuth 2-6 decimal places
+    /// ```
+    /// Convert 1234.56 to $1234.56
+    /// Convert 12.3456 to $12.3456
+    /// Convert 0.123456 to $0.123456
+    /// ```
+
+    private var currencyFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .currency
+        formatter.locale = .current
+        formatter.currencyCode = CurrencyUtil.instance.currencyCode
+        formatter.currencySymbol = CurrencyUtil.instance.currencySymbol
+        formatter.minimumFractionDigits = CurrencyUtil.instance.minimumFractionDigits
+        formatter.maximumFractionDigits = 6
+
+        return formatter
+    }
+
+    /// Converts Double to Currency as a String wuth 2-6 decimal places
+    /// ```
+    /// Convert 1234.56 to $1234.56
+    /// Convert 12.3456 to $12.3456
+    /// Convert 0.123456 to $0.123456
+    /// ```
+
+    func asCurrencyWith6Decimals() -> String {
+        let num = NSNumber(value: self)
+        return currencyFormatter.string(from: num) ?? "\(CurrencyUtil.instance.currencySymbol)\(CurrencyUtil.instance.defaultCurrenyValue)"
+    }
+
+
     /// Converts a Double into string representation
     /// ```
     /// Convert 1.2345 to "1.23"

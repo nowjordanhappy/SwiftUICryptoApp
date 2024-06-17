@@ -26,7 +26,19 @@ enum LocalizableKeys : String {
     case amountInPortfolio
     case save
     case currentValue
+    case currentPrice
     case quantityPlaceholder
+    case marketCapitalization
+    case rank
+    case volume
+    case high24H
+    case low24H
+    case priceChange24H
+    case marketCapChange24H
+    case blockTime
+    case hashingAlgorithm
+    case overview
+    case additionalDetails
 
     var localizedStringKey: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)

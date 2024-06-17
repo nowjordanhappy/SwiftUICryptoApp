@@ -20,4 +20,17 @@
 "amountInPortfolio" = "Cantidad Holding";
 "save" = "Guardar";
 "currentValue" = "Valor actual:";
+"currentPrice" = "Precio Actual";
 "quantityPlaceholder" = "Ej. 1.4";
+"marketCapitalization" = "Capitalización Mercado";
+"rank" = "Rank";
+"volume" = "Volumen";
+"high24H" = "24h Alto";
+"low24H" = "24h Bajo";
+"priceChange24H" = "24h Cambio Precio";
+"marketCapChange24H" = "24h Cambio Cap. Mercado";
+"blockTime" = "Tiempo de bloqueo";
+"hashingAlgorithm" = "Algoritmo de Hashing";
+"overview" = "Descripción General";
+"additionalDetails" = "Detalles Adicionales";
+

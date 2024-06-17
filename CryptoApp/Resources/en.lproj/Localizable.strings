@@ -20,4 +20,16 @@
 "amountInPortfolio" = "Amount holding";
 "save" = "Save";
 "currentValue" = "Current value:";
+"currentPrice" = "Current Price";
 "quantityPlaceholder" = "Ex. 1.4";
+"marketCapitalization" = "Market Capitalization";
+"rank" = "Rank";
+"volume" = "Volume";
+"high24H" = "24h High";
+"low24H" = "24h Low";
+"priceChange24H" = "24h Price Change";
+"marketCapChange24H" = "24h Market Cap Change";
+"blockTime" = "Block Time";
+"hashingAlgorithm" = "Hashing Algorithm";
+"overview" = "Overview";
+"additionalDetails" = "Additional Details";

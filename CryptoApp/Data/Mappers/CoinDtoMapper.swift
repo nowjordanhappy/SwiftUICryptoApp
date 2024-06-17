@@ -15,10 +15,7 @@ struct CoinDtoMapper {
               let symbol = model.symbol,
               let name = model.name,
               let image = model.image,
-              let currentPrice = model.currentPrice,
-              let high24H = model.high24H,
-              let low24H = model.low24H,
-              let priceChange24H = model.priceChange24H
+              let currentPrice = model.currentPrice
         else { return nil }
 
         var sparklineIn7D = SparklineIn7D()
@@ -37,9 +34,9 @@ struct CoinDtoMapper {
             marketCapRank: model.marketCapRank ?? 0.0,
             fullyDilutedValuation: model.fullyDilutedValuation,
             totalVolume: model.totalVolume,
-            high24H: high24H,
-            low24H: low24H,
-            priceChange24H: priceChange24H,
+            high24H: model.high24H,
+            low24H: model.low24H,
+            priceChange24H: model.priceChange24H,
             priceChangePercentage24H: model.priceChangePercentage24H ?? 0.0,
             marketCapChange24H: model.marketCapChange24H,
             marketCapChangePercentage24H: model.marketCapChangePercentage24H,
