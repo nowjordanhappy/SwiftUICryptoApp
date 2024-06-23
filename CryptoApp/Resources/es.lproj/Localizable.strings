@@ -33,4 +33,7 @@
 "hashingAlgorithm" = "Algoritmo de Hashing";
 "overview" = "Descripción General";
 "additionalDetails" = "Detalles Adicionales";
-
+"website" = "Sitio Web";
+"reddit" = "Reddit";
+"readMore" = "Leer más...";
+"readLess" = "Menos";

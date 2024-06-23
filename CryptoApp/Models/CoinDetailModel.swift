@@ -15,8 +15,7 @@ struct CoinDetailModel {
     let links: Links?
 
     var readableDescription: String? {
-        //return description?.en?.removingHTMLOccurances
-        return description?.en//?.removingHTMLOccurances
+        return description?.en?.removingHTMLOccurances
     }
 }
 

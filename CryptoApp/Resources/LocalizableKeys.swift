@@ -39,6 +39,10 @@ enum LocalizableKeys : String {
     case hashingAlgorithm
     case overview
     case additionalDetails
+    case website
+    case reddit
+    case readMore
+    case readLess
 
     var localizedStringKey: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)

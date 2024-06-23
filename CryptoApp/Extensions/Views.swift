@@ -43,3 +43,9 @@ extension TextField where Label == Text {
         self.init(localizableKey.localizedStringKey, text: text)
     }
 }
+
+extension Link where Label == Text {
+    init(_ localizableKey: LocalizableKeys, destination: URL) {
+        self.init(localizableKey.localizedStringKey, destination: destination)
+    }
+}

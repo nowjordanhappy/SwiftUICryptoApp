@@ -21,6 +21,8 @@ struct DetailLoadingView: View {
 
 struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
+    @State private var showFullDescription: Bool = false
+
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -33,31 +35,51 @@ struct DetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
-                Text("")
-                    .frame(height: 150)
+            VStack {
+                ChartView(coin: viewModel.coin)
+                    .padding(.vertical)
 
-                overviewTitle
-                Divider()
-                overviewGrid
-
-                aditionalTitle
-                Divider()
-                addionalGrid
+                VStack(spacing: 20) {
+                    overviewTitle
+                    Divider()
+                    descriptionSection
+                    overviewGrid
+                    aditionalTitle
+                    Divider()
+                    addionalGrid
+                    websiteSection
+                }
+                .padding()
             }
-            .padding()
         }
         .navigationTitle(viewModel.coin.name)
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarTrailing) {
+                navigationBarTrailingItems
+            }
+        })
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(coin: dev.coin)
+        NavigationView {
+            DetailView(coin: dev.coin)
+        }
     }
 }
 
 extension DetailView {
+    private var navigationBarTrailingItems: some View {
+        HStack {
+            Text(viewModel.coin.symbol.uppercased())
+                .font(.headline)
+                .foregroundStyle(Color.theme.secondaryText)
+            CoinImageView(coin: viewModel.coin)
+                .frame(width: 25, height: 25)
+        }
+    }
+
     private var overviewTitle: some View {
         Text(.overview)
             .font(.title)
@@ -72,6 +94,34 @@ extension DetailView {
             .bold()
             .foregroundStyle(Color.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private var descriptionSection: some View {
+        ZStack {
+            if let coinDescription = viewModel.coinDescription, !coinDescription.isEmpty {
+                VStack(alignment: .leading) {
+
+                    Text(coinDescription)
+                        .lineLimit(showFullDescription ? nil : 3)
+                        .font(.callout)
+                        .foregroundStyle(Color.theme.secondaryText)
+                        .animation(showFullDescription ? Animation.easeInOut : .none, value: showFullDescription)
+
+                    Button(action: {
+                        //withAnimation(.easeInOut) {
+                            showFullDescription.toggle()
+                        //}
+                    }, label: {
+                        Text(showFullDescription ? LocalizableKeys.readLess : LocalizableKeys.readMore)
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(.vertical, 4)
+                    })
+                    .tint(.blue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
     }
 
     private var overviewGrid: some View {
@@ -98,5 +148,20 @@ extension DetailView {
                     StatisticView(stat: stat)
                 }
             })
+    }
+
+    private var websiteSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            if let websiteString = viewModel.websiteURL, let url = URL(string: websiteString) {
+                Link(.website, destination: url)
+            }
+
+            if let redditString = viewModel.redditURL, let url = URL(string: redditString) {
+                Link(.reddit, destination: url)
+            }
+        }
+        .tint(.blue)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .font(.headline)
     }
 }
