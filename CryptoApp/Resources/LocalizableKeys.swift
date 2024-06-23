@@ -43,6 +43,23 @@ enum LocalizableKeys : String {
     case reddit
     case readMore
     case readLess
+    case sectionSwiftfulThinking
+    case sectionCoinGecko
+    case sectionDeveloper
+    case sectionApplication
+    case termsOfService
+    case privacyPolicy
+    case companyWebsite
+    case learnMore
+    case settings
+    case subscribeOnYouTube
+    case supportHisCoffeeAddiction
+    case visitCoinGecko
+    case visitMyGithub
+    case buyMeACoffee
+    case descriptionSwiftfulThinking
+    case descriptionCoinGecko
+    case descriptionDeveloper
 
     var localizedStringKey: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)

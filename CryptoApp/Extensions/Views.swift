@@ -49,3 +49,15 @@ extension Link where Label == Text {
         self.init(localizableKey.localizedStringKey, destination: destination)
     }
 }
+
+extension View {
+    func navigationTitle(_ localizableKey: LocalizableKeys) -> some View {
+        return self.navigationTitle(localizableKey.localizedStringKey)
+    }
+}
+
+extension Image {
+    init(systemIcon: SystemIcon) {
+        self.init(systemName: systemIcon.rawValue)
+    }
+}

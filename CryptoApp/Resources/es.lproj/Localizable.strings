@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  CryptoApp
+/*
+ Localizable.strings
+ CryptoApp
 
-  Created by Jordan Rojas Alarcon on 8/03/24.
-  
-*/
+ Created by Jordan Rojas Alarcon on 8/03/24.
+
+ */
 "livePrices" = "Precios en Vivo";
 "portfolio" = "Portafolio";
 "coin" = "Moneda";
@@ -37,3 +37,20 @@
 "reddit" = "Reddit";
 "readMore" = "Leer más...";
 "readLess" = "Menos";
+"sectionSwiftfulThinking" = "Swiftful Thinking";
+"sectionCoinGecko" = "CoinGecko";
+"sectionDeveloper" = "Desarrollador";
+"sectionApplication" = "Aplicación";
+"termsOfService" = "Términos de Servicio";
+"privacyPolicy" = "Políticas de Privacidad";
+"companyWebsite" = "Sitio Web de Empresa";
+"learnMore" = "Aprender Más";
+"settings" = "Configuración";
+"subscribeOnYouTube" = "Suscríbete en YouTube 🥳";
+"supportHisCoffeeAddiction" = "Apoya su adicción al café ☕️";
+"visitCoinGecko" = "Visita CoinGecko 🦎";
+"visitMyGithub" = "Visita mi Github 🐧👨‍💻";
+"buyMeACoffee" = "Cómprame un Café ☕️👨‍💻";
+"descriptionSwiftfulThinking" = "Esta aplicación fue creada siguiendo un curso de @SwiftfulThinking en YouTube. Utiliza Arquitectura MVVM, Combine y CoreData!";
+"descriptionCoinGecko" = "Los datos de criptomonedas utilizados en esta aplicación provienen de una API gratuita de CoinGecko. Los precios pueden tener un ligero retraso.";
+"descriptionDeveloper" = "Esta aplicación fue desarrollada por Jordan R.A. (@nowjordanhappy). Utiliza SwiftUI y está escrita al 100% en Swift. El proyecto se beneficia de la multitarea, publishers/subscribers y persistencia de datos. También tiene soporte para los idiomas ES y ES.";

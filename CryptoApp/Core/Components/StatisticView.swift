@@ -19,7 +19,7 @@ struct StatisticView: View {
                 .font(.headline)
                 .foregroundStyle(Color.theme.accent)
             HStack(spacing: 4) {
-                Image(systemName: SystemIcon.triangleFill.rawValue)
+                Image(systemIcon: SystemIcon.triangleFill)
                     .font(.caption2)
                     .rotationEffect(
                         Angle(degrees: (stat.percentageChange ?? 0) >= 0 ? 0 : 180)

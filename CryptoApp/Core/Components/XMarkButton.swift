@@ -15,7 +15,7 @@ struct XMarkButton: View {
         Button(action: {
             dismiss()
         }, label: {
-            Image(systemName: SystemIcon.xmark.rawValue)
+            Image(systemIcon: SystemIcon.xmark)
                 .font(.headline)
         })
     }

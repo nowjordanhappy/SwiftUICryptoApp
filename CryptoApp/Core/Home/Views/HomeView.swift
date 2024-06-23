@@ -11,6 +11,7 @@ struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
     @State private var showPortfolio: Bool = false // animate right
     @State private var showPortfolioView: Bool = false // new sheet
+    @State private var showSettingsView: Bool = false // new sheet
 
     @State private var selectedCoin: CoinModel? = nil
     @State private var showDetailView: Bool = false
@@ -48,6 +49,10 @@ struct HomeView: View {
 
                 Spacer(minLength: 0)
             }
+            .sheet(isPresented: $showSettingsView, content: {
+                SettingsView()
+                    .environmentObject(viewModel)
+            })
         }
         .background {
             NavigationLink(destination: DetailLoadingView(coin: $selectedCoin), isActive: $showDetailView) {
@@ -76,6 +81,8 @@ extension HomeView {
                 .onTapGesture {
                     if showPortfolio {
                         showPortfolioView.toggle()
+                    } else {
+                        showSettingsView.toggle()
                     }
                 }
 
@@ -132,7 +139,7 @@ extension HomeView {
         HStack {
             HStack(spacing: 4) {
                 Text(.coin)
-                Image(systemName: SystemIcon.chevronDown.rawValue)
+                Image(systemIcon: SystemIcon.chevronDown)
                     .opacity((viewModel.sortOption == .rank || viewModel.sortOption == .rankReversed) ? 1.0 : 0.0)
                     .rotationEffect(Angle(degrees: viewModel.sortOption == .rank ? 0 : 180))
             }
@@ -145,7 +152,7 @@ extension HomeView {
             if showPortfolio {
                 HStack(spacing: 4) {
                     Text(.holdings)
-                    Image(systemName: SystemIcon.chevronDown.rawValue)
+                    Image(systemIcon: SystemIcon.chevronDown)
                         .opacity((viewModel.sortOption == .holdings || viewModel.sortOption == .holdingsReversed) ? 1.0 : 0.0)
                         .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0 : 180))
                 }
@@ -157,7 +164,7 @@ extension HomeView {
             }
             HStack(spacing: 4) {
                 Text(.price)
-                Image(systemName: SystemIcon.chevronDown.rawValue)
+                Image(systemIcon: SystemIcon.chevronDown)
                     .opacity((viewModel.sortOption == .price || viewModel.sortOption == .priceReversed) ? 1.0 : 0.0)
                     .rotationEffect(Angle(degrees: viewModel.sortOption == .price ? 0 : 180))
             }
@@ -173,7 +180,7 @@ extension HomeView {
                     viewModel.reloadData()
                 }
             }, label: {
-                Image(systemName: SystemIcon.goforward.rawValue)
+                Image(systemIcon: SystemIcon.goforward)
             })
             .rotationEffect(Angle(degrees: viewModel.isLoading ? 360 : 0), anchor: .center)
         }

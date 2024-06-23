@@ -29,7 +29,7 @@ struct PortfolioView: View {
                     }
                 }
             }
-            .navigationTitle(LocalizableKeys.editPortfolio.localizedStringKey)
+            .navigationTitle(LocalizableKeys.editPortfolio)
             .toolbar(content: {
                 ToolbarItem(placement: .topBarLeading) {
                     XMarkButton(dismiss: _dismiss)
@@ -120,7 +120,7 @@ extension PortfolioView {
 
     private var trailingNavBarButtons: some View {
         HStack(spacing: 10) {
-            Image(systemName: SystemIcon.checkmark.rawValue)
+            Image(systemIcon: SystemIcon.checkmark)
                 .opacity(showCheckmark ? 1.0 : 0.0)
 
             Button(action: {

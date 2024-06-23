@@ -13,7 +13,7 @@ struct SearchBarView: View {
 
     var body: some View {
         HStack {
-            Image(systemName: SystemIcon.magnifyingglass.rawValue)
+            Image(systemIcon: SystemIcon.magnifyingglass)
                 .foregroundStyle(
                     searchText.isEmpty ? Color.theme.secondaryText : Color.theme.accent
                 )
@@ -22,7 +22,7 @@ struct SearchBarView: View {
                 .foregroundStyle(Color.theme.accent)
                 .autocorrectionDisabled(true)
                 .overlay(
-                    Image(systemName: SystemIcon.xmarkCircleFill.rawValue)
+                    Image(systemIcon: SystemIcon.xmarkCircleFill)
                         .padding()
                         .offset(x: 10)
                         .foregroundStyle(Color.theme.accent)
