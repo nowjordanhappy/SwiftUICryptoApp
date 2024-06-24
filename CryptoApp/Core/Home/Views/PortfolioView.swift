@@ -23,7 +23,7 @@ struct PortfolioView: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollViewReader { scroll in
                 VStack(alignment: .leading, spacing: 0) {
                     SearchBarView(searchText: $viewModel.searchText)
 
@@ -33,6 +33,14 @@ struct PortfolioView: View {
                         portfolioInputSection
                     }
                 }
+                .onAppear(perform: {
+                    if let coin = selectedCoin {
+                        withAnimation(.easeInOut) {
+                            updateSelectedCoinQuantity(coin: coin)
+                            scroll.scrollTo(coin.id, anchor: .center)
+                        }
+                    }
+                })
             }
             .navigationTitle(LocalizableKeys.editPortfolio)
             .toolbar(content: {
@@ -49,11 +57,12 @@ struct PortfolioView: View {
                 }
             }
         }
-        .onAppear(perform: {
+        /*.onAppear(perform: {
             if let coin = selectedCoin {
                 updateSelectedCoinQuantity(coin: coin)
+
             }
-        })
+        })*/
     }
 }
 
@@ -70,6 +79,7 @@ extension PortfolioView {
             LazyHStack(spacing: 10) {
                 ForEach(viewModel.allCoins) { coin in
                     CoinLogoView(coin: coin)
+                        .id(coin.id)
                         .frame(width: 75)
                         .padding(4)
                         .onTapGesture {

@@ -148,7 +148,6 @@ extension HomeView {
                         Button(LocalizableKeys.edit, action: {
                             self.selectedCoinPortfolio = coin
                             self.showPortfolioView = true
-                            debugPrint("here one: \(coin.name)")
                         })
                         .foregroundStyle(Color.theme.accent)
                     }
