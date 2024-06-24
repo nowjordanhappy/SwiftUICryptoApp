@@ -54,3 +54,4 @@
 "descriptionSwiftfulThinking" = "Esta aplicación fue creada siguiendo un curso de @SwiftfulThinking en YouTube. Utiliza Arquitectura MVVM, Combine y CoreData!";
 "descriptionCoinGecko" = "Los datos de criptomonedas utilizados en esta aplicación provienen de una API gratuita de CoinGecko. Los precios pueden tener un ligero retraso.";
 "descriptionDeveloper" = "Esta aplicación fue desarrollada por Jordan R.A. (@nowjordanhappy). Utiliza SwiftUI y está escrita al 100% en Swift. El proyecto se beneficia de la multitarea, publishers/subscribers y persistencia de datos. También tiene soporte para los idiomas ES y ES.";
+"loadingMessageLaunchScreen" = "Cargando tu portafolio...";

@@ -60,6 +60,7 @@ enum LocalizableKeys : String {
     case descriptionSwiftfulThinking
     case descriptionCoinGecko
     case descriptionDeveloper
+    case loadingMessageLaunchScreen
 
     var localizedStringKey: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)
