@@ -34,6 +34,7 @@ class CoinDetailDataService {
             .map { coinDetailDto in
                 return self.mapper.mapToDomainModel(from: coinDetailDto)
             }
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: networkingManager.handleCompletion(completion:), receiveValue: { [weak self] returnedCoinDetails in
                 self?.coinDetails = returnedCoinDetails
                 self?.coinDetailsSubscription?.cancel()

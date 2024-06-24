@@ -61,6 +61,11 @@ enum LocalizableKeys : String {
     case descriptionCoinGecko
     case descriptionDeveloper
     case loadingMessageLaunchScreen
+    case emptyPortfolioMessage
+    case deleteCoinPortFolioMessage
+    case delete
+    case cancel
+    case edit
 
     var localizedStringKey: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)

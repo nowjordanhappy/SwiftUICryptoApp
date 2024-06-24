@@ -61,3 +61,9 @@ extension Image {
         self.init(systemName: systemIcon.rawValue)
     }
 }
+
+extension Button where Label == Text {
+    init(_ localizableKey: LocalizableKeys, role: ButtonRole? = nil, action: @escaping () -> Void) {
+        self.init(localizableKey.localizedStringKey, role: role, action: action)
+    }
+}

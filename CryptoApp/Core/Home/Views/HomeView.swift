@@ -14,14 +14,16 @@ struct HomeView: View {
     @State private var showSettingsView: Bool = false // new sheet
 
     @State private var selectedCoin: CoinModel? = nil
+    @State private var selectedCoinPortfolio: CoinModel? = nil
     @State private var showDetailView: Bool = false
+    @State private var showDeleteAlert: Bool = false
 
     var body: some View {
         ZStack {
             Color.theme.background
                 .ignoresSafeArea()
                 .sheet(isPresented: $showPortfolioView, content: {
-                    PortfolioView()
+                    PortfolioView(selectedCoin: $selectedCoinPortfolio)
                         .environmentObject(viewModel)
                 })
 
@@ -31,7 +33,7 @@ struct HomeView: View {
                 HomeStatsView(showPortfolio: $showPortfolio)
 
                 SearchBarView(searchText: $viewModel.searchText)
-                
+
                 columTitles
 
                 if !showPortfolio {
@@ -43,8 +45,14 @@ struct HomeView: View {
                 }
 
                 if showPortfolio {
-                    portfolioCoinsList
-                        .transition(.move(edge: .trailing))
+                    ZStack(alignment: .top) {
+                        if viewModel.portfolioCoins.isEmpty && viewModel.searchText.isEmpty {
+                            portfolioEmptyText
+                        } else {
+                            portfolioCoinsList
+                        }
+                    }
+                    .transition(.move(edge: .trailing))
                 }
 
                 Spacer(minLength: 0)
@@ -80,6 +88,7 @@ extension HomeView {
                 )
                 .onTapGesture {
                     if showPortfolio {
+                        selectedCoinPortfolio = nil
                         showPortfolioView.toggle()
                     } else {
                         showSettingsView.toggle()
@@ -127,12 +136,47 @@ extension HomeView {
             ForEach(viewModel.portfolioCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: true)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .swipeActions(allowsFullSwipe: false) {
+                        Button(
+                            LocalizableKeys.delete,
+                            action: {
+                                showDeleteAlert = true
+                            }
+                        )
+                        .tint(.red)
+
+                        Button(LocalizableKeys.edit, action: {
+                            self.selectedCoinPortfolio = coin
+                            self.showPortfolioView = true
+                            debugPrint("here one: \(coin.name)")
+                        })
+                        .foregroundStyle(Color.theme.accent)
+                    }
+                    .confirmationDialog(
+                        LocalizableKeys.deleteCoinPortFolioMessage.getLocalizedString(),
+                        isPresented: $showDeleteAlert,
+                        titleVisibility: .visible,
+                        actions: {
+                            Button(LocalizableKeys.delete, role: .destructive, action: {
+                                viewModel.deletePortfolio(coin: coin)
+                            })
+                            Button(LocalizableKeys.cancel, role: .cancel) {}
+                        })
                     .onTapGesture {
                         segue(coin: coin)
                     }
             }
         }
         .listStyle(PlainListStyle())
+    }
+
+    private var portfolioEmptyText: some View {
+        Text(.emptyPortfolioMessage)
+            .font(.callout)
+            .fontWeight(.medium)
+            .foregroundStyle(Color.theme.accent)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
 
     private var columTitles: some View {

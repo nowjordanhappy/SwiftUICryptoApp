@@ -192,5 +192,7 @@ class HomeViewModel: ObservableObject {
         return stats
     }
 
-
+    func deletePortfolio(coin: CoinModel) {
+        portfolioDataService.updatePortfolio(coin: coin, amount: 0)
+    }
 }

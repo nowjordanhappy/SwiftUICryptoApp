@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var vm = HomeViewModel()
+    @State private var showLaunchView: Bool = true
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if showLaunchView {
+            LaunchView(showLaunchView: $showLaunchView)
+                .transition(.move(edge: .leading))
+        } else {
+            ZStack {
+                NavigationView {
+                    HomeView()
+                        .hideNavigationBar()
+                }
+                .navigationViewStyle(.stack)
+                .environmentObject(vm)
+            }
         }
-        .padding()
     }
 }
 

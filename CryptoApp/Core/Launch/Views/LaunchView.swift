@@ -11,10 +11,10 @@ struct LaunchView: View {
 
     private var loadingMessage: LocalizableKeys = .loadingMessageLaunchScreen
     private let maxLoops: Int = 1
-    
+
     @State private var loadingText: [String]
     @State private var showLoadingText: Bool = false
-    private let timer = Timer.publish(every: 0.075, on: .main, in: .common)
+    private let timer = Timer.publish(every: 0.055, on: .main, in: .common)
         .autoconnect()
 
     @State private var counter: Int = 0

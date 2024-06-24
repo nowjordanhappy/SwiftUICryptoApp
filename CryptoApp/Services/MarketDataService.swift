@@ -36,6 +36,7 @@ class MarketDataService {
                     return nil
                 }
             }
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: networkingManager.handleCompletion(completion:),
                   receiveValue: { [weak self] returnedmarketData in
                 self?.marketData = returnedmarketData

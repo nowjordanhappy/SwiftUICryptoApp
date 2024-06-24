@@ -10,11 +10,16 @@ import SwiftUI
 struct PortfolioView: View {
 
     @EnvironmentObject private var viewModel: HomeViewModel
-    @State private var selectedCoin: CoinModel?
+    @Binding var selectedCoin: CoinModel?
     @State private var quantityText: String = ""
     @State private var showCheckmark: Bool = false
 
     @Environment(\.dismiss) var dismiss
+    
+    init(selectedCoin: Binding<CoinModel?>) {
+        _selectedCoin = selectedCoin
+    }
+
 
     var body: some View {
         NavigationView {
@@ -44,12 +49,17 @@ struct PortfolioView: View {
                 }
             }
         }
+        .onAppear(perform: {
+            if let coin = selectedCoin {
+                updateSelectedCoinQuantity(coin: coin)
+            }
+        })
     }
 }
 
 struct PortfolioView_Previews: PreviewProvider {
     static var previews: some View {
-        PortfolioView()
+        PortfolioView(selectedCoin: .constant(nil))
             .environmentObject(dev.homeViewModel)
     }
 }
@@ -83,6 +93,10 @@ extension PortfolioView {
     private func updateSelectedCoin(coin: CoinModel) {
         selectedCoin = coin
 
+        updateSelectedCoinQuantity(coin: coin)
+    }
+
+    private func updateSelectedCoinQuantity(coin: CoinModel) {
         if let portfolioCoin = viewModel.portfolioCoins.first(where: { $0.id == coin.id }), let amount = portfolioCoin.currentHoldings {
             quantityText = "\(amount )"
         } else {

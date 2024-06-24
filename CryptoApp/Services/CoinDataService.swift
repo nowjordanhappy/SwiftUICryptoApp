@@ -33,6 +33,7 @@ class CoinDataService {
                 debugPrint("getCoins coinsDto \(coinsDto.count)")
                 return coinsDto.compactMap { self.mapper.mapToDomainModel(from: $0) }
             }
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: networkingManager.handleCompletion(completion:),
                   receiveValue: { [weak self] returnedCoins in
                 debugPrint("getCoins returnedCoins \(returnedCoins.count)")

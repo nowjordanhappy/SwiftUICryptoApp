@@ -55,3 +55,8 @@
 "descriptionCoinGecko" = "This cryptocurrency data that is used in this app comes from a free API from CoinGecko! Prices may be slightly delayed.";
 "descriptionDeveloper" = "This app was developed by Jordan R.A. (@nowjordanhappy). It uses SwiftUI and is written 100% in Swift. The project benefits from multi-threading, publishers/subscribers, and data persistance. Also it has support for ES and ES languages.";
 "loadingMessageLaunchScreen" = "Loading your portfolio...";
+"emptyPortfolioMessage" = "You haven't added any coins to your portfolio yet! Click the + button to get started! 🧐";
+"deleteCoinPortFolioMessage" = "Are you sure you want to delete it from your Portfolio?";
+"delete" = "Delete";
+"cancel" = "Cancel";
+"edit" = "Edit";
