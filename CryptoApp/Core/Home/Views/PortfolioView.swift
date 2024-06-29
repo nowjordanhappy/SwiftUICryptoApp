@@ -15,7 +15,7 @@ struct PortfolioView: View {
     @State private var showCheckmark: Bool = false
 
     @Environment(\.dismiss) var dismiss
-    
+
     init(selectedCoin: Binding<CoinModel?>) {
         _selectedCoin = selectedCoin
     }
@@ -61,11 +61,11 @@ struct PortfolioView: View {
             }
         }
         /*.onAppear(perform: {
-            if let coin = selectedCoin {
-                updateSelectedCoinQuantity(coin: coin)
+         if let coin = selectedCoin {
+         updateSelectedCoinQuantity(coin: coin)
 
-            }
-        })*/
+         }
+         })*/
     }
 }
 
@@ -77,10 +77,17 @@ struct PortfolioView_Previews: PreviewProvider {
 }
 
 extension PortfolioView {
+    private var searchListCoins: [CoinModel] {
+        // if there're coins in portfolio and search string is empty, than will be shown allCoins,
+        // otherwise will portfolio coins
+        viewModel.searchText.isEmpty && !viewModel.portfolioCoins.isEmpty ? viewModel.portfolioCoins : viewModel.allCoins
+    }
+
+
     private var coinLogoList: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
-                ForEach(viewModel.allCoins) { coin in
+                ForEach(searchListCoins) { coin in
                     CoinLogoView(coin: coin)
                         .id(coin.id)
                         .frame(width: 75)
@@ -172,7 +179,7 @@ extension PortfolioView {
         guard
             let coin = selectedCoin,
             let amount = Double(quantityText)
-            else { return }
+        else { return }
 
         // Save to portfolio
         viewModel.updatePortfolio(coin: coin, amount: amount)
