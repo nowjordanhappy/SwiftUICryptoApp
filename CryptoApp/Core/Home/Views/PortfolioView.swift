@@ -23,25 +23,28 @@ struct PortfolioView: View {
 
     var body: some View {
         NavigationView {
-            ScrollViewReader { scroll in
-                VStack(alignment: .leading, spacing: 0) {
-                    SearchBarView(searchText: $viewModel.searchText)
+            ScrollView {
+                ScrollViewReader { scroll in
+                    VStack(alignment: .leading, spacing: 0) {
+                        SearchBarView(searchText: $viewModel.searchText)
 
-                    coinLogoList
+                        coinLogoList
 
-                    if selectedCoin != nil {
-                        portfolioInputSection
-                    }
-                }
-                .onAppear(perform: {
-                    if let coin = selectedCoin {
-                        withAnimation(.easeInOut) {
-                            updateSelectedCoinQuantity(coin: coin)
-                            scroll.scrollTo(coin.id, anchor: .center)
+                        if selectedCoin != nil {
+                            portfolioInputSection
                         }
                     }
-                })
+                    .onAppear(perform: {
+                        if let coin = selectedCoin {
+                            withAnimation(.easeInOut) {
+                                updateSelectedCoinQuantity(coin: coin)
+                                scroll.scrollTo(coin.id, anchor: .center)
+                            }
+                        }
+                    })
+                }
             }
+            .background(Color.theme.background.ignoresSafeArea())
             .navigationTitle(LocalizableKeys.editPortfolio)
             .toolbar(content: {
                 ToolbarItem(placement: .topBarLeading) {
