@@ -108,7 +108,7 @@ Comment the line with dowlonad function:
 
 And uncomment the next like using the json file:
 ```swift
- coinDetailsSubscription = networkingManager.readLocalJSON(nameFile: "bitcoinDetailResponse"
+ coinDetailsSubscription = networkingManager.readLocalJSON(nameFile: "bitcoinDetailResponse")
 ```
 
 
