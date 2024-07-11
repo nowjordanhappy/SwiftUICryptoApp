@@ -22,7 +22,7 @@ We are using Core Data, SwiftUI, Combine and others great tools. I added new fea
 
 | Demo      | Full Demo |
 | ----------|-----------|
-| <img src="./screenshots/crypto-app-demo.gif"/> | <img src="./screenshots/crypto-app-full-demo.mov"/> |
+| <img src="./screenshots/crypto-app-demo.gif" width="250" height="500" /> | <img src="./screenshots/crypto-app-full-demo.gif" width="250" height="500"/> |
 
 ## Table of Contents
 - [CryptoApp (SwiftUI)](#crypto-app-swiftui)
