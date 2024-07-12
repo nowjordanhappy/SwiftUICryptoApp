@@ -20,9 +20,9 @@ This project is following the great and free course [SwiftUI Crypto App](https:/
 We are using Core Data, SwiftUI, Combine and others great tools. I added new features covering and using Clean Architecture, Mappers, Localization, SwiftLint and Unit Tests.
 
 
-| Demo      | Full Demo |
-| ----------|-----------|
-| <img src="./screenshots/crypto-app-demo.gif" width="280" height="600" /> | <img src="./screenshots/crypto-app-full-demo.gif" width="280" height="600"/> |
+| Demo Dark Mode      | Demo Light Mode | Full Demo |
+| ----------|-----------|-----------|
+| <img src="./screenshots/crypto-app-demo.gif" width="280" height="600" /> | <img src="./screenshots/crypto-app-demo-light.gif" width="280" height="600" /> | <img src="./screenshots/crypto-app-full-demo.gif" width="280" height="600"/> |
 
 ## Table of Contents
 - [CryptoApp (SwiftUI)](#crypto-app-swiftui)
@@ -40,6 +40,11 @@ We are using Core Data, SwiftUI, Combine and others great tools. I added new fea
 
  ## Structure<a name = "structure"></a>
 The project has the following structure:
+
+<table border="0" style="vertical-align: top;">
+
+<tr>
+<td style="vertical-align: top;">
 
 - **utilities**
 - **extensions**
@@ -64,7 +69,18 @@ The project has the following structure:
 - **Resources**
 - **JsonResponse**
 
-<img src="./screenshots/crypto-app-structure.png" width="100" />
+</td>
+
+<td width="50">
+</td>
+
+<td style="vertical-align: top;">
+<img src="./screenshots/crypto-app-structure.png" width="220" />
+</td>
+
+</tr>
+</table>
+
 
 ## API Reference CoinGecko<a name = "api-reference-coin-gecko"></a>
 Using Free [CoinGecko API](https://docs.coingecko.com/reference/introduction) for this project. The free plan has a limitations: 
@@ -118,8 +134,12 @@ And uncomment the next like using the json file:
 
 - [X] Swipe Actions to delete and edit (**NEW**)
 - [X] Spanish Localization (**NEW**)
+
+  <img src="./screenshots/crypto-app-full-demo.gif" width="280" height="600"/>
+
 - [X] SwiftLint (**NEW**)
 - [X] Unit Tests (**NEW**)
+
 
 ## Tests<a name = "tests"></a>
 
