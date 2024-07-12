@@ -66,6 +66,10 @@ enum LocalizableKeys : String {
     case delete
     case cancel
     case edit
+    case onboardingWelcome
+    case onboardingDescription
+    case onboardingStartNow
+    case byAuthor
 
     var localizedStringKey: LocalizedStringKey {
         return LocalizedStringKey(self.rawValue)

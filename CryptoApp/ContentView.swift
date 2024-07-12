@@ -8,21 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage(wrappedValue: false, AppStorageKeys.hasSeenOnboarding) private var hasSeenOnBoarding: Bool
+
     @StateObject var vm = HomeViewModel()
     @State private var showLaunchView: Bool = true
     
+    init() {
+        hasSeenOnBoarding = false
+    }
+
     var body: some View {
+
         if showLaunchView {
             LaunchView(showLaunchView: $showLaunchView)
                 .transition(.move(edge: .leading))
         } else {
-            ZStack {
-                NavigationView {
-                    HomeView()
-                        .hideNavigationBar()
+            if hasSeenOnBoarding {
+                ZStack {
+                    NavigationView {
+                        HomeView()
+                            .hideNavigationBar()
+                    }
+                    .navigationViewStyle(.stack)
+                    .environmentObject(vm)
                 }
-                .navigationViewStyle(.stack)
-                .environmentObject(vm)
+            } else {
+                OnboardingView()
             }
         }
     }

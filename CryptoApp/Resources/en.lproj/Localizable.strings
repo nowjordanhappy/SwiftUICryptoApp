@@ -60,3 +60,7 @@
 "delete" = "Delete";
 "cancel" = "Cancel";
 "edit" = "Edit";
+"onboardingWelcome" = "Welcome to CryptoApp";
+"onboardingDescription" = "Discover and manage cryptocurrencies effortlessly with CryptoApp. Real-time data, detailed insights, and local portfolio tracking—all in one place.";
+"onboardingStartNow" = "Start Now"
+"byAuthor" = "by @nowjordanhappy"

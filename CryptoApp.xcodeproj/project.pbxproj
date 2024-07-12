@@ -49,6 +49,9 @@
 		2998474A2BEDB34800AB006A /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299847492BEDB34800AB006A /* HapticManager.swift */; };
 		299A2E932BE70B570010FC68 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 299A2E912BE70B570010FC68 /* PortfolioContainer.xcdatamodeld */; };
 		299A2E952BE70BF50010FC68 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299A2E942BE70BF50010FC68 /* PortfolioDataService.swift */; };
+		29A1CBEC2C40DD61000F91FA /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A1CBEB2C40DD61000F91FA /* OnboardingView.swift */; };
+		29A1CBF22C40DDD5000F91FA /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A1CBF12C40DDD5000F91FA /* AppStorageKeys.swift */; };
+		29A1CBF52C40EC0B000F91FA /* GrowingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A1CBF42C40EC0B000F91FA /* GrowingButton.swift */; };
 		29B2CE732B9BEB3C00C8C21C /* CryptoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B2CE722B9BEB3C00C8C21C /* CryptoAppApp.swift */; };
 		29B2CE7A2B9BEB3D00C8C21C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29B2CE792B9BEB3D00C8C21C /* Preview Assets.xcassets */; };
 		29B2CE842B9BEB3E00C8C21C /* CryptoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B2CE832B9BEB3E00C8C21C /* CryptoAppTests.swift */; };
@@ -132,6 +135,9 @@
 		299847492BEDB34800AB006A /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		299A2E922BE70B570010FC68 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		299A2E942BE70BF50010FC68 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
+		29A1CBEB2C40DD61000F91FA /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		29A1CBF12C40DDD5000F91FA /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
+		29A1CBF42C40EC0B000F91FA /* GrowingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingButton.swift; sourceTree = "<group>"; };
 		29B2CE6F2B9BEB3C00C8C21C /* CryptoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B2CE722B9BEB3C00C8C21C /* CryptoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAppApp.swift; sourceTree = "<group>"; };
 		29B2CE792B9BEB3D00C8C21C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 				29053B722BA7C0EA001B1FCA /* NetworkingManager.swift */,
 				29419CC92BC2429A00C6BEC7 /* LocalFileManager.swift */,
 				299847492BEDB34800AB006A /* HapticManager.swift */,
+				29A1CBF32C40EBF6000F91FA /* Views */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -311,6 +318,38 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		29A1CBEA2C40DD41000F91FA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				29A1CBEB2C40DD61000F91FA /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		29A1CBED2C40DD8C000F91FA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				29A1CBF02C40DDC2000F91FA /* Constants */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		29A1CBF02C40DDC2000F91FA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				29A1CBF12C40DDD5000F91FA /* AppStorageKeys.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		29A1CBF32C40EBF6000F91FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				29A1CBF42C40EC0B000F91FA /* GrowingButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		29B2CE662B9BEB3C00C8C21C = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +375,7 @@
 			children = (
 				29B2CE722B9BEB3C00C8C21C /* CryptoAppApp.swift */,
 				290AA62C2C2903CC003C5CE8 /* ContentView.swift */,
+				29A1CBED2C40DD8C000F91FA /* App */,
 				29053B712BA7C0D6001B1FCA /* Utilities */,
 				29B2CEA02B9BF85800C8C21C /* Extensions */,
 				29DF4E352BA147E80061ECBA /* Services */,
@@ -396,6 +436,7 @@
 			children = (
 				29B2CEAB2B9C04C000C8C21C /* Components */,
 				290AA6262C28F1AF003C5CE8 /* Launch */,
+				29A1CBEA2C40DD41000F91FA /* Onboarding */,
 				29B2CEA42B9BFABD00C8C21C /* Home */,
 				29D8D67C2C16599700C2F3D4 /* Detail */,
 				290AA6212C28A70C003C5CE8 /* Settings */,
@@ -674,6 +715,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				298CA0532BC4CFB4004AF8A6 /* UIApplication.swift in Sources */,
+				29A1CBF22C40DDD5000F91FA /* AppStorageKeys.swift in Sources */,
+				29A1CBF52C40EC0B000F91FA /* GrowingButton.swift in Sources */,
 				2935F4CB2BD5C613003E3B0B /* MarketDataService.swift in Sources */,
 				290180F72B9D1D7400D62119 /* CoinRowView.swift in Sources */,
 				29DF4E342BA146490061ECBA /* HomeViewModel.swift in Sources */,
@@ -688,6 +731,7 @@
 				296B87622C1E67A9008BC62A /* CoinDetailDataService.swift in Sources */,
 				292EE65C2BCC80BA009AE77C /* StatisticModel.swift in Sources */,
 				29568DA82BB7675F00E7E912 /* CoinImageView.swift in Sources */,
+				29A1CBEC2C40DD61000F91FA /* OnboardingView.swift in Sources */,
 				290AA6252C28A75F003C5CE8 /* SettingsView.swift in Sources */,
 				29BFAAB42B9E3920007E6A34 /* CoinDtoMapper.swift in Sources */,
 				2998474A2BEDB34800AB006A /* HapticManager.swift in Sources */,
