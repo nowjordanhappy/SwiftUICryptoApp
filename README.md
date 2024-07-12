@@ -78,24 +78,24 @@ So sometimes to avoid this and be able to use the preview I stored the JSON resp
 
 #### Get Coins Data<a name = "get-coins-data"></a>
 
-```http
+```
     GET coins/markets?vs_currency=usd&order-market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h
 ```
 
 #### Get Coin Detail<a name = "get-coins-detail"></a>
 
-```http
+```
     GET coins/{coinId}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false
 ```
 
 #### Get Market Data<a name = "get-market-data"></a>
 
-```http
+```
     GET global
 ```
 
 
-| Demo      | JSON Response File |
+| Service      | JSON Response File |
 | ----------|-----------|
 | Get Coins Data | marketsResponse.json |
 | Get Coin Detail | bitcoinDetailResponse.json |
