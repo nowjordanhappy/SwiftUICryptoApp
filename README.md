@@ -116,10 +116,10 @@ And uncomment the next like using the json file:
 
 ## New Features<a name = "new-features"></a>
 
-- [X] Swipe Actions to delete and edit **NEW**
-- [X] Spanish Localization **NEW**
-- [X] SwiftLint **NEW**
-- [X] Unit Tests **NEW**
+- [X] Swipe Actions to delete and edit (**NEW**)
+- [X] Spanish Localization (**NEW**)
+- [X] SwiftLint (**NEW**)
+- [X] Unit Tests (**NEW**)
 
 ## Tests<a name = "tests"></a>
 
