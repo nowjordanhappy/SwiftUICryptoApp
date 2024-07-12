@@ -64,6 +64,8 @@ The project has the following structure:
 - **Resources**
 - **JsonResponse**
 
+<img src="./screenshots/crypto-app-structure.png" width="100" />
+
 ## API Reference CoinGecko<a name = "api-reference-coin-gecko"></a>
 Using Free [CoinGecko API](https://docs.coingecko.com/reference/introduction) for this project. The free plan has a limitations: 
 > The rate limit is ~30 calls per minutes and it varies depending on the traffic size. 
@@ -99,7 +101,8 @@ So sometimes to avoid this and be able to use the preview I stored the JSON resp
 | Get Coin Detail | bitcoinDetailResponse.json |
 | Get Coin Detail | marketDataResponse.json |
 
-If we exceed the rate limite, we can do like this in **CoinDetailDataService**:
+If we exceed the rate limite, we can do like this in `CoinDetailDataService`:
+
 Comment the line with dowlonad function:
 
 ```swift
@@ -111,6 +114,12 @@ And uncomment the next like using the json file:
  coinDetailsSubscription = networkingManager.readLocalJSON(nameFile: "bitcoinDetailResponse")
 ```
 
+## New Features<a name = "new-features"></a>
+
+- [X] Swipe Actions to delete and edit **NEW**
+- [X] Spanish Localization **NEW**
+- [X] SwiftLint **NEW**
+- [X] Unit Tests **NEW**
 
 ## Tests<a name = "tests"></a>
 
