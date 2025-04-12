@@ -60,6 +60,6 @@
 "delete" = "Eliminar";
 "cancel" = "Cancelar";
 "edit" = "Editar";
-"onboardingWelcome" = "Bienvenido a CryptoApp"
+"onboardingWelcome" = "Bienvenido a CryptoApp";
 "onboardingDescription" = "Descubre y gestiona criptomonedas fácilmente con CryptoApp. Datos en tiempo real, insights detallados y seguimiento de cartera local, ¡todo en un solo lugar!";
-"onboardingStartNow" = "Empezar ahora"
+"onboardingStartNow" = "Empezar ahora";
